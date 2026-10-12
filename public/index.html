@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMad Sprint Planner & Code Reviewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <h1>🏛️ BMad Sprint Planner & Code Reviewer</h1>
+            <span class="badge">SDLC Compliance: Active</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Sprint Planning -->
+        <section class="card">
+            <h2>🏃 Lập Kế Hoạch Sprint ($bmad-sprint-planning)</h2>
+            <p class="section-desc">Nhập danh sách các User Stories và cấu hình năng suất tối đa (Velocity) để tự động phân bổ Sprint tối ưu.</p>
+            
+            <div class="form-group">
+                <label for="velocity">Năng suất tối đa của một Sprint (Velocity Limit - Story Points):</label>
+                <input type="number" id="velocity" value="10" min="1">
+            </div>
+
+            <div class="story-input-area">
+                <h3>Thêm User Story Mới</h3>
+                <div class="row">
+                    <input type="text" id="story-title" placeholder="Tiêu đề (ví dụ: Thiết kế DB)">
+                    <input type="number" id="story-points" placeholder="Story Points" min="1" style="width: 120px;">
+                </div>
+                <textarea id="story-desc" placeholder="Mô tả chi tiết và tiêu chí nghiệm thu (Acceptance Criteria)..." rows="2"></textarea>
+                <button type="button" id="btn-add-story" class="btn btn-secondary">➕ Thêm Vào Danh Sách Chờ</button>
+            </div>
+
+            <div class="backlog-section">
+                <h3>📋 Danh Sách Chờ Phân Bổ (Backlog)</h3>
+                <ul id="backlog-list" class="list-group">
+                    <!-- Sẽ được render bằng JS -->
+                </ul>
+                <button type="button" id="btn-plan-sprints" class="btn btn-primary" style="margin-top: 15px;">⚡ Tự Động Phân Bổ Sprint</button>
+            </div>
+
+            <div id="sprint-result" class="result-box hidden">
+                <h3>📅 Kết Quả Phân Bổ Sprint</h3>
+                <pre id="sprint-markdown-output"></pre>
+            </div>
+        </section>
+
+        <!-- Section 2: Code Review -->
+        <section class="card">
+            <h2>🔍 Rà Soát Chất Lượng Mã Nguồn ($bmad-code-review)</h2>
+            <p class="section-desc">Dán mã nguồn của bạn vào đây để kiểm tra các lỗi bảo mật nghiêm trọng (BLOCKER) và cảnh báo chất lượng (WARNING).</p>
+            
+            <div class="form-group">
+                <textarea id="code-input" placeholder="Dán mã nguồn JavaScript/Node.js vào đây..." rows="10" class="code-editor">
+// Ví dụ mã nguồn cần rà soát
+const apiKey = "secret_key_12345"; 
+
+function executeTask(input) {
+    var result = eval(input); 
+    console.log("Kết quả chạy:", result);
+    return result;
+}
+                </textarea>
+            </div>
+            <button type="button" id="btn-run-review" class="btn btn-danger">🛡️ Chạy Rà Soát Mã Nguồn</button>
+
+            <div id="review-result" class="result-box hidden">
+                <h3>📊 Kết Quả Đánh Giá Chất Lượng</h3>
+                <div id="review-status-badge"></div>
+                <ul id="findings-list" class="findings-list">
+                    <!-- Sẽ được render bằng JS -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Vibecode Senior Full-Stack Developer. Tuân thủ tiêu chuẩn BMad Method 6.12.0 & TEA 1.27.2.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
+```
+
+---
